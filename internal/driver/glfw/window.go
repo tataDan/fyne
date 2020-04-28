@@ -468,6 +468,7 @@ func (w *window) moved(_ *glfw.Window, x, y int) {
 	w.xpos, w.ypos = x, y
 
 	if w.canvas.detectedScale == w.detectScale() {
+		w.refresh(w.viewport) // TODO remove once we have a real background refresh ticker for macOS/Windows on drag/resize
 		return
 	}
 
