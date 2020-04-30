@@ -1,0 +1,22 @@
+14c14
+< 	fileIconSize      = 64
+---
+> 	fileIconSize      = 48
+39c39
+< 	text := widget.NewLabelWithStyle(i.name, fyne.TextAlignCenter, fyne.TextStyle{})
+---
+> 	text := widget.NewLabelWithStyle(i.name, fyne.TextAlignLeading, fyne.TextStyle{})
+90c90
+< 	iconAlign := (size.Width - fileIconSize) / 2
+---
+> 	iconAlign := 0
+96d95
+< 
+98c97
+< 	s.text.Move(fyne.NewPos(0, fileIconSize+theme.Padding()))
+---
+> 	s.text.Move(fyne.NewPos(fileIconSize, 10))
+102c101
+< 	return fyne.NewSize(fileIconSize, fileIconSize+fileTextSize+theme.Padding())
+---
+> 	return fyne.NewSize(fileIconSize, fileIconSize)

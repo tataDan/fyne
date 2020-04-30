@@ -105,11 +105,15 @@ func (f *fileDialog) makeUI() fyne.CanvasObject {
 		f.open)
 	footer := fyne.NewContainerWithLayout(layout.NewBorderLayout(nil, nil, nil, buttons),
 		buttons, f.fileName)
-	f.files = fyne.NewContainerWithLayout(layout.NewVBoxLayout())
+
+	f.files = fyne.NewContainerWithLayout(layout.NewFixedGridLayout(fyne.NewSize(fileIconCellWidth,
+		fileIconSize+theme.Padding()+fileTextSize)),
+	)
 	f.fileScroll = widget.NewScrollContainer(f.files)
 	verticalExtra := int(float64(fileIconSize) * 0.25)
 	f.fileScroll.SetMinSize(fyne.NewSize(fileIconCellWidth*2+theme.Padding(),
 		(fileIconSize+fileTextSize)+theme.Padding()*2+verticalExtra))
+
 	f.breadcrumb = widget.NewHBox()
 	scrollBread := widget.NewScrollContainer(f.breadcrumb)
 	body := fyne.NewContainerWithLayout(layout.NewBorderLayout(scrollBread, nil, nil, nil),
